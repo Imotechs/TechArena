@@ -1,0 +1,87 @@
+{%extends 'mainapp/base.html'%}
+{% block content%}
+<div class="side-right">
+        <div class="content-section">
+            <div class="media">
+                <img class="rounded-circle account-img" src= "{{student_img.url}}" width="200" height="200">
+                    <div class="media-body">
+                        <h3 class= "account-heading">{{user.username}}</h3>
+                        <p class="text-secondary">{{user.email}}</p>
+            </div>  
+
+            </div>  
+                <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <fieldset class= "form-group">
+                <legend class = "border-bottom mb-4"> <small class="text-mutted fa fa-pencil">My Profile</small></legend>
+            </fieldset>
+            <div class= "form-group">
+               <p class="text-muted">You signed up on <strong>{{user.date_joined}}</strong></p>
+            </div>
+            </form>       
+        </div>
+        </div>
+    
+
+            <div class = 'side-left'>
+                {%if request.user.is_authenticated %}
+                <p class='text-muted'> You Loged in As <strong style="color:aqua"> {{request.user.username}}</strong></p>
+                {%endif%}
+                    <p >Softwares</hp>
+                        <ul class="list-group">
+                        <li class="list-group-item list-group-item-light">{{student_id}}</li>
+                        <li class="list-group-item list-group-item-light fa fa-envelope">Announcements</li>
+                        <li class="list-group-item list-group-item-light">Calendars</li>
+                        <li class="list-group-item list-group-item-light">{%if user.is_active%}
+                            <p>Status <c style="color:green;font-size: larger;">[::] </c>since {{user.last_login}}</p>
+                            {%endif%}</li>
+                        <small> @ {{user.email}}</small>
+                        <p><a href="#">Reset Password</a></p>
+                        </ul>
+                    </p>
+                    
+            </div>
+            
+            <style>
+                body{
+                  box-shadow: 0 4px 8px 0 orange, 0 6px 20px 0 rgb(0, 0, 0);
+                  position: inherit;
+                }
+                .side-left{
+                      float:right;
+                      align-content: center; 
+                      align-items:center;
+                      padding: 0%;
+                      margin-top: 5%;
+                      margin-bottom: 12%;
+
+                      box-shadow: 0 4px 8px 0 orange, 0 6px 20px 0 rgb(0, 0, 0);
+                      -webkit-animation-name: example;
+                  -webkit-animation-duration: 8s; 
+                  animation-name: example;
+                  animation-duration: 8s;
+                  
+                  }
+                  @keyframes example {
+                  from {background-color: orange;}
+                  to {background-color: yellow;}
+              }
+                  .side-left p{
+                    padding-left: 30%;
+                  }
+                .side-right{
+                      float:left;
+                      margin-bottom: 8%;
+
+                  }
+                .navs p{
+                  box-shadow: 0 4px 8px 0 rgba(211, 206, 206, 0.687), 0 6px 20px 0 rgb(0, 0, 0);
+              
+                }
+            form input{
+                border: 0px;
+                margin-left: 5%;
+                color: aqua;
+            }
+              </style>
+{%endblock%}

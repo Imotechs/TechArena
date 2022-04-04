@@ -1,0 +1,63 @@
+{%extends 'mainapp/base.html'%}
+{% block content%}
+        <div class="content-section">
+            <div class="media">
+                    <div class="media-body">
+                        <h3 style="margin-left: 10%;"class= "account-heading">Admin Dashboard</h3>
+            </div>  
+            <div class="side-right">
+
+            {% for user in users%}
+            <p>{{user.username}} &nbsp; &nbsp;{{user.email}}</p>
+          
+            {%endfor%}
+            </div>   
+        </div>      
+        </div>
+        </div>
+    
+
+           
+            <style>
+                body{
+                  box-shadow: 0 4px 8px 0 orange, 0 6px 20px 0 rgb(0, 0, 0);
+                  position: inherit;
+                }
+                .side-left{
+                      float:right;
+                      align-content: center; 
+                      align-items:center;
+                      padding: 0%;
+                      margin-top: 5%;
+                      margin-bottom: 12%;
+
+                      box-shadow: 0 4px 8px 0 orange, 0 6px 20px 0 rgb(0, 0, 0);
+                      -webkit-animation-name: example;
+                  -webkit-animation-duration: 8s; 
+                  animation-name: example;
+                  animation-duration: 8s;
+                  
+                  }
+                  @keyframes example {
+                  from {background-color: orange;}
+                  to {background-color: yellow;}
+              }
+                  .side-left p{
+                    padding-left: 30%;
+                  }
+                .side-right{
+                      float:left;
+                      margin-bottom: 8%;
+
+                  }
+                .navs p{
+                  box-shadow: 0 4px 8px 0 rgba(211, 206, 206, 0.687), 0 6px 20px 0 rgb(0, 0, 0);
+              
+                }
+            form input{
+                border: 0px;
+                margin-left: 5%;
+                color: aqua;
+            }
+              </style>
+{%endblock%}

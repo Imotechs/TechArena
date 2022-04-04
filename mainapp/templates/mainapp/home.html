@@ -1,0 +1,78 @@
+{%extends 'mainapp/base.html'%}
+
+{% block content%}
+<div class="side-right">
+  <div class="row">
+<h4>Softwares Available for Learning</h4>
+    {% for item in software %}
+    <div class="col">
+   <img class="rounded-circle account-img" src= "{{item.image.url}}" width="200" height="200">
+
+     <h1 style="color:brown"> <p > {{item.name}}</p></h1>
+     {{item.description}}
+
+  </div>
+      {%endfor%}
+
+</div>
+  
+
+  <p class="fa fa-gear"> All is TechArena</p>
+  <p class="fa fa-motherboard"> All is TechArena</p>
+</div>
+
+<div class = 'side-left'>
+  {%if request.user.is_authenticated %}
+  <p class='text-muted'> You Loged in As <strong style="color:aqua"> {{request.user.username}}</strong></p>
+    {%endif%}
+        <p >Task Bar</hp>
+  
+          <ul class="list-group">
+            <li class="list-group-item list-group-item-light">Latest Posts</li>
+            <li class="list-group-item list-group-item-light fa fa-envelope">Announcements</li>
+            <li class="list-group-item list-group-item-light">Calendars</li>
+            <li class="list-group-item list-group-item-light">etc</li>
+            <p>&nbsp;&nbsp;   @ {{user.email}}</p>
+            <p><a href="#">Reset Password</a></p>
+          </ul>
+        </p>
+ 
+  </div>
+<style>
+  body{
+    box-shadow: 0 4px 8px 0 orange, 0 6px 20px 0 rgb(0, 0, 0);
+  }
+  .side-left{
+        float:right;
+        /* align-content: center; */
+        align-items:baseline;
+        padding: 0%;
+        position: relative;
+        margin-top: 5%;
+        margin-bottom: 8%;
+        box-shadow: 0 4px 8px 0 orange, 0 6px 20px 0 rgb(0, 0, 0);
+        -webkit-animation-name: example;
+    -webkit-animation-duration: 8s; 
+    animation-name: example;
+    animation-duration: 8s;
+    
+    }
+    @keyframes example {
+    from {background-color: orange;}
+    to {background-color: yellow;}
+}
+    .side-left p{
+      padding-left: 30%;
+
+    }
+  .side-right{
+        float:left;
+        margin-bottom: 8%;
+
+    }
+  .navs p{
+    box-shadow: 0 4px 8px 0 rgba(211, 206, 206, 0.687), 0 6px 20px 0 rgb(0, 0, 0);
+
+  }
+</style>
+{%endblock%}

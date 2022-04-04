@@ -1,0 +1,20 @@
+{%extends 'mainapp/base.html'%}
+{% block content%}
+<div class="login">
+    <form action ='' method="post" enctype="multipart/form-data">
+        <fieldset><legend>Choose One major Stack and Set up your profile</legend>
+        {%csrf_token%}
+        <p>{{form.as_p}}</p>
+        </fieldset>
+   <button type="submit">Get ID</button>
+  </form>  
+</div>
+<style>
+ form input{
+   display: none;
+ }
+ form label{
+   display: none;
+ }
+</style>
+{%endblock%}

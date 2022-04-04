@@ -1,0 +1,15 @@
+{%extends 'mainapp/base.html'%}
+{% block content%}
+<div class="login">
+    <form action ='' method="post" enctype="multipart/form-data">
+        <fieldset><legend>User Register</legend>
+        {%csrf_token%}
+        {{form.as_p}}
+        </fieldset>
+   <button type="submit">Register</button>
+   <small >Already have an account? <a style="color: aqua;"href="{%url 'login'%}">Login</a></small>
+
+  </form>  
+</div>
+
+{%endblock%}
